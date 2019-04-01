@@ -40,14 +40,13 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
-        setPreferredSize(new java.awt.Dimension(550, 600));
 
         JPanelLogin.setBackground(new java.awt.Color(255, 255, 255));
         JPanelLogin.setPreferredSize(new java.awt.Dimension(550, 600));
 
         jPanel3.setBackground(new java.awt.Color(0, 200, 150));
 
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 60)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("BarSystem");
 
@@ -56,21 +55,26 @@ public class Login extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
+                .addContainerGap(118, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(123, 123, 123))
+                .addGap(110, 110, 110))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         JLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Usuario.png"))); // NOI18N
 
         ventanaUsuario.setPreferredSize(new java.awt.Dimension(250, 40));
+        ventanaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ventanaUsuarioActionPerformed(evt);
+            }
+        });
 
         ventanaPassword.setPreferredSize(new java.awt.Dimension(250, 40));
 
@@ -182,6 +186,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void ventanaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventanaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ventanaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

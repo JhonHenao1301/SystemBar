@@ -167,9 +167,9 @@ public class CrearCliente extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
+                        .addGap(129, 129, 129)
                         .addComponent(jButton1)
-                        .addGap(42, 42, 42)
+                        .addGap(55, 55, 55)
                         .addComponent(jButton2)))
                 .addContainerGap(82, Short.MAX_VALUE))
         );

@@ -5,12 +5,24 @@
  */
 package systembar;
 
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager; 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jhon Henao
  */
 public class CrearUsuario extends javax.swing.JFrame {
 
+    private Connection connection1 = null;
+    private ResultSet rs1=null;
+    private Statement s1=null;
     /**
      * Creates new form CrearUsuario
      */
@@ -18,6 +30,31 @@ public class CrearUsuario extends javax.swing.JFrame {
         initComponents();
     }
 
+     public void conexion()
+    {
+        if(connection1 != null)
+        {
+            return;
+        }
+        String url="jdbc:postgresql://localhost:5432/prueba";
+        String password="7985246";
+        try
+        {
+            Class.forName("org.postgresql.Driver");
+            connection1=DriverManager.getConnection(url,"postgres",password);
+            
+            if(connection1 !=null)
+            {
+                System.out.println("Conectando a la base de datos..");
+            }
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println("Problemas de conexion");
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +77,7 @@ public class CrearUsuario extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -99,10 +137,22 @@ public class CrearUsuario extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setText("Crear");
         jButton1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton2.setText("Cancelar");
         jButton2.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,6 +183,10 @@ public class CrearUsuario extends javax.swing.JFrame {
                 .addGap(153, 153, 153)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(61, 61, 61))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +212,9 @@ public class CrearUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,6 +234,45 @@ public class CrearUsuario extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        conexion();
+        try
+        {
+            String idUser=jTextField1.getText();
+            String nombres=jTextField2.getText();
+            String cargo=jTextField3.getText();
+            String apellidos=jTextField4.getText();
+            s1=connection1.createStatement();
+            int z=s1.executeUpdate("INSERT INTO usuario VALUES ('"+idUser+"','"+nombres+"','"+apellidos+"','"+cargo+"');");
+            if(z==1)
+            {
+                System.out.println("se agregaron los registros");
+              
+                JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
+                setVisible(false);
+                CrearUsuario newUsuario = new CrearUsuario();
+                newUsuario.setVisible(true);
+            }
+            else
+            {
+                System.out.println("algo paso");
+                JOptionPane.showMessageDialog(null, "algo paso...");
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error de conexion");
+            JOptionPane.showMessageDialog(null, "error de conexion con la base de datos");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Inicio newInicio = new Inicio();
+        newInicio.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +312,7 @@ public class CrearUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

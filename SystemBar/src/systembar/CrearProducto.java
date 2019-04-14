@@ -85,7 +85,7 @@ public class CrearProducto extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
+        setResizable(false);
 
         JPanelFondo.setBackground(new java.awt.Color(255, 255, 255));
         JPanelFondo.setPreferredSize(new java.awt.Dimension(600, 600));
@@ -177,7 +177,6 @@ public class CrearProducto extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Back.png"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(50, 50));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton1.setText("Volver");
@@ -195,7 +194,7 @@ public class CrearProducto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
                 .addGap(26, 26, 26))
         );
         jPanel1Layout.setVerticalGroup(

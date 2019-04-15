@@ -40,6 +40,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
 
         JPanelLogin.setBackground(new java.awt.Color(255, 255, 255));
         JPanelLogin.setPreferredSize(new java.awt.Dimension(550, 600));
@@ -77,11 +78,16 @@ public class Login extends javax.swing.JFrame {
         });
 
         ventanaPassword.setPreferredSize(new java.awt.Dimension(250, 40));
+        ventanaPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ventanaPasswordActionPerformed(evt);
+            }
+        });
 
         botonIngresar.setBackground(new java.awt.Color(204, 204, 204));
         botonIngresar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         botonIngresar.setText("Ingresar");
-        botonIngresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonIngresar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         botonIngresar.setBorderPainted(false);
         botonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +98,7 @@ public class Login extends javax.swing.JFrame {
         botonSalir.setBackground(new java.awt.Color(204, 204, 204));
         botonSalir.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         botonSalir.setText("Salir");
-        botonSalir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonSalir.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         botonSalir.setBorderPainted(false);
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,12 +170,14 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
-        String usuario = "Balon";
-        String user;
+        String usuario = "login";
+        String passw = "password";
+        String user, password;
 
         user = ventanaUsuario.getText();
+        password = new String(ventanaPassword.getPassword());
 
-        if(user.equals(usuario))
+        if(user.equals(usuario) && password.equals(passw))
         {
             VentanaPrincipal ac = new VentanaPrincipal();
             ac.setVisible(true);
@@ -190,6 +198,10 @@ public class Login extends javax.swing.JFrame {
     private void ventanaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventanaUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ventanaUsuarioActionPerformed
+
+    private void ventanaPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventanaPasswordActionPerformed
+        
+    }//GEN-LAST:event_ventanaPasswordActionPerformed
 
     /**
      * @param args the command line arguments

@@ -171,7 +171,7 @@ public class Login extends javax.swing.JFrame {
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
         String usuario = "login";
-        String passw = "password";
+        String passw = "1234";
         String user, password;
 
         user = ventanaUsuario.getText();

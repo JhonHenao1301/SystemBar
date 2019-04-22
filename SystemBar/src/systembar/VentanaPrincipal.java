@@ -71,7 +71,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Inicio");
+        jButton1.setText("Usuarios");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setPreferredSize(new java.awt.Dimension(100, 45));
         jButton1.addActionListener(new java.awt.event.ActionListener() {

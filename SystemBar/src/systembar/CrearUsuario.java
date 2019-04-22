@@ -368,9 +368,10 @@ public class CrearUsuario extends javax.swing.JFrame {
             limpiarTabla();
 
         }catch(Exception e){}
-            JOptionPane.showMessageDialog(null,"Usuario registrado con exito");
-            listar();
-            nuevo();
+        
+        JOptionPane.showMessageDialog(null,"Usuario registrado con exito");
+        listar();
+        nuevo();
     }//GEN-LAST:event_botonCrearActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed

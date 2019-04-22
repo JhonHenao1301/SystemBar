@@ -5,37 +5,32 @@
  */
 package Control;
 
+import Modelos.Cliente;
 import Modelos.Conexion;
-import Modelos.Producto;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author Jhon Henao
- */
-public class ControlProducto {
+public class ControlCliente {
     
     Conexion con = new Conexion();
     Connection cn;
     Statement st;
     ResultSet rs;
-    Producto producto = new Producto();
-    Object[] Datos= new Object[6]; 
+    Cliente cliente = new Cliente();
+    Object[] Datos= new Object[3];
     
-    public ControlProducto(){
+    public ControlCliente(){
     }
     
     public void agregar()
     {    
     /*Se le asigna a un string el insert en la base de datos*/
         
-         String sqlUsuario="INSERT INTO Producto VALUES" 
-                 + "("+producto.getCodigo()+",'"+ producto.getReferencia()+"','"
-                 + producto.getDescripcion()+"','"+ producto.getCosto()+"','"+
-                 producto.getPrecio() +"','"+producto.getUbicacionBodega()+"');";
+         String sqlUsuario="INSERT INTO Cliente VALUES" 
+                 + "("+cliente.getId()+",'"+ cliente.getNombre()+"','"
+                 + cliente.getApellido()+"');";
         
     try{
        /*se establece coneccion con la base de datos y se le introduce la consulta*/
@@ -45,8 +40,8 @@ public class ControlProducto {
         }catch(SQLException e){}
     }
 
-    public Producto getProducto() {
-        return producto;
+    public Cliente getCliente() {
+        return cliente;
     }
 
     public Object[] getDatos() {
@@ -55,5 +50,5 @@ public class ControlProducto {
     
     
 }
-
+    
 

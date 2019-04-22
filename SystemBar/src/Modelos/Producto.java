@@ -16,12 +16,12 @@ public class Producto {
     String  descripcion;     /* 40 */
     int     costo;
     int     precio;
-    int     ubicacionBodega; /* 20 */
+    String  ubicacionBodega; /* 20 */
 
     public Producto(){
     }
 
-    public Producto(int codigo,String referencia,String descripcion,int costo,int precio,int ubicacionBodega){
+    public Producto(int codigo,String referencia,String descripcion,int costo,int precio,String ubicacionBodega){
         
         this.codigo = codigo;
         this.referencia = referencia;
@@ -51,7 +51,7 @@ public class Producto {
         return precio;
     }
 
-    public int getUbicacionBodega() {
+    public String getUbicacionBodega() {
         return ubicacionBodega;
     }
 
@@ -75,7 +75,7 @@ public class Producto {
         this.precio = precio;
     }
 
-    public void setUbicacionBodega(int ubicacionBodega) {
+    public void setUbicacionBodega(String ubicacionBodega) {
         this.ubicacionBodega = ubicacionBodega;
     }
     
